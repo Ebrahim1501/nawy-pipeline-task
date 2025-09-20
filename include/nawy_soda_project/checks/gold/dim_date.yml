@@ -1,0 +1,9 @@
+checks for dim_date:
+  - missing_count(date_id) = 0:
+      name: date_id cannot be null
+  - duplicate_count(date_id) = 0:
+      name: date_id must be unique
+  - invalid_count(week_day) = 0:
+      name: Invalid weekday values
+      valid values: ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
+      warn: when > 0

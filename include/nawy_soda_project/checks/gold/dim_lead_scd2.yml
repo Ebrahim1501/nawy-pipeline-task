@@ -1,0 +1,44 @@
+checks for dim_lead_scd2:
+
+  - missing_count(lead_scd_id) = 0:
+      name: " lead_scd_id cannot be null"
+      fail: when > 0
+
+  - duplicate_count(lead_scd_id) = 0:
+      name: " lead_scd_id must be unique"
+      fail: when > 0
+
+
+  - failed rows:
+      name: "effective_date must be less than or equal to expiration_date"
+      fail: when > 0
+      fail query: |
+        SELECT *
+        FROM dim_lead_scd2
+        WHERE expiration_date IS NOT NULL
+          AND effective_date > expiration_date
+
+  - failed rows:
+      name: "Fatal Error: is_active flag must align with expiration_date"
+      fail: when > 0
+      fail query: |
+        SELECT *
+        FROM dim_lead_scd2
+        WHERE (is_active = TRUE AND expiration_date IS NOT NULL)
+           OR (is_active = FALSE AND expiration_date IS NULL)
+
+  - failed rows:
+      name: "status_name values must be lowercase"
+      warn: when > 0
+      fail query: |
+        SELECT *
+        FROM dim_lead_scd2
+        WHERE status_name != LOWER(status_name)
+        
+  - failed rows:
+      name: "Quality Error: last_contact_date cannot be in the future"
+      warn: when > 0
+      fail query: |
+        SELECT *
+        FROM dim_lead_scd2
+        WHERE last_contact_date > current_date

@@ -1,0 +1,15 @@
+checks for dim_property_type:
+
+  - missing_count(property_type_id) = 0:
+      name: "property_type_id cannot be null"
+      fail: when > 0
+  - duplicate_count(property_type_id) = 0:
+      name: "property_type_id must be unique"
+      fail: when > 0
+  - failed rows:
+      name: "type values must be lowercase"
+      warn: when > 0
+      fail query: |
+        SELECT *
+        FROM dim_property_type
+        WHERE type != LOWER(type)

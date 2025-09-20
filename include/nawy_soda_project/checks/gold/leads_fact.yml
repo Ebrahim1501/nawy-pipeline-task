@@ -1,0 +1,49 @@
+checks for leads_fact:
+
+  - missing_count(id) = 0:
+      name: "id col cannot be null"
+      fail: when > 0
+
+  - duplicate_count(id) = 0:
+      name: "id must be unique"
+      fail: when > 0
+
+  - failed rows:
+      name: "every lead must have a valid lead_scd_id map"
+      warn: when > 0
+      fail query: |
+        SELECT *
+        FROM leads_fact
+        WHERE lead_scd_id NOT IN (SELECT lead_scd_id FROM dim_lead_scd2)
+
+  - failed rows:
+      name: "every lead must have a valid lead_type_id map"
+      warn: when > 0
+      fail query: |
+        SELECT *
+        FROM leads_fact
+        WHERE lead_type_id NOT IN (SELECT lead_type_id FROM dim_lead_type)
+
+  - failed rows:
+      name: "every lead must have a valid contact_method_id map"
+      warn: when > 0
+      fail query: |
+        SELECT *
+        FROM leads_fact
+        WHERE contact_method_id NOT IN (SELECT contact_method_id FROM dim_contact_method)
+
+  - failed rows:
+      name: "customer_id should be a positive number"
+      fail: when > 0
+      fail query: |
+        SELECT *
+        FROM leads_fact
+        WHERE customer_id < 0
+
+  - failed rows:
+      name: "user_id should be positive number"
+      fail: when > 0
+      fail query: |
+        SELECT *
+        FROM leads_fact
+        WHERE user_id < 0

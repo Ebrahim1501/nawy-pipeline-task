@@ -1,0 +1,35 @@
+checks for sales_transformed:
+
+  - duplicate_count(lead_source_id, unit_location, property_type_id, area_id, compound_id, sale_category) = 0:
+      name: " combination used in key generation must be unique per each record"
+      fail: when > 0
+
+  - duplicate_count(sale_id) = 0:
+      name: "sale_id must be unique"
+      fail: when > 0
+
+  - failed rows:
+      name: "Contraction date must be after or on the reservation date"
+      warn: when > 0
+      fail query: |
+        SELECT *
+        FROM sales_transformed
+        WHERE contraction_date IS NOT NULL 
+          AND reservation_date IS NOT NULL
+          AND contraction_date < reservation_date
+
+  - failed rows:
+      name: "Finalized sales must have an actual_value"
+      warn: when > 0
+      fail query: |
+        SELECT *
+        FROM sales_transformed
+        WHERE is_finalized = true AND actual_value IS NULL
+
+  - failed rows:
+      name: "Orphan sales entries (no lead_id) should not exist"
+      warn: when > 0
+      fail query: |
+        SELECT *
+        FROM sales_transformed
+        WHERE is_orphan_sale = true

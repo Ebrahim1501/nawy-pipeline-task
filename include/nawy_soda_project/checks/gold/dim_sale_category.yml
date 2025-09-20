@@ -1,0 +1,16 @@
+checks for dim_sale_category:
+ - missing_count(category_id) = 0:
+      name: "category_id cannot be null"
+      fail: when > 0
+
+ - duplicate_count(category_id) = 0:
+      name: "category_id must be unique"
+      fail: when > 0
+  
+ - failed rows:
+      name: "category values must be lowercase"
+      warn: when > 0
+      fail query: |
+        SELECT *
+        FROM dim_category
+        WHERE category != LOWER(category)
