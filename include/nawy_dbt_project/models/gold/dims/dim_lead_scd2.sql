@@ -1,4 +1,8 @@
-
+{{
+    config(
+    tags=['track_scd']
+        )
+}}
 
 SELECT --just re-selecting the snapshot scd2 columns with convential scd2 names 
 dbt_scd_id as lead_scd_id,

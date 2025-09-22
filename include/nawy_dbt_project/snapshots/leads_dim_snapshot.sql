@@ -2,7 +2,6 @@
 
 {{
     config(
-      target_schema='public', 
       strategy='timestamp',
       unique_key='lead_id',
       updated_at='updated_at'

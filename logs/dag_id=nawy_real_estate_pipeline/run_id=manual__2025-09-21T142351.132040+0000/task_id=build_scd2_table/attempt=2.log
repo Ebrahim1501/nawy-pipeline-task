@@ -1,0 +1,45 @@
+[2025-09-21T23:33:33.846+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-21T23:33:33.877+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.build_scd2_table manual__2025-09-21T14:23:51.132040+00:00 [queued]>
+[2025-09-21T23:33:33.890+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.build_scd2_table manual__2025-09-21T14:23:51.132040+00:00 [queued]>
+[2025-09-21T23:33:33.891+0000] {taskinstance.py:2867} INFO - Starting attempt 2 of 2
+[2025-09-21T23:33:33.940+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): build_scd2_table> on 2025-09-21 14:23:51.132040+00:00
+[2025-09-21T23:33:33.953+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=867) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-09-21T23:33:33.955+0000] {standard_task_runner.py:72} INFO - Started process 869 to run task
+[2025-09-21T23:33:33.956+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nawy_real_estate_pipeline', 'build_scd2_table', 'manual__2025-09-21T14:23:51.132040+00:00', '--job-id', '406', '--raw', '--subdir', 'DAGS_FOLDER/nawy_dag.py', '--cfg-path', '/tmp/tmp1yudxx1x']
+[2025-09-21T23:33:33.957+0000] {standard_task_runner.py:105} INFO - Job 406: Subtask build_scd2_table
+[2025-09-21T23:33:34.037+0000] {task_command.py:467} INFO - Running <TaskInstance: nawy_real_estate_pipeline.build_scd2_table manual__2025-09-21T14:23:51.132040+00:00 [running]> on host b65782a7021d
+[2025-09-21T23:33:34.441+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nawy_real_estate_pipeline' AIRFLOW_CTX_TASK_ID='build_scd2_table' AIRFLOW_CTX_EXECUTION_DATE='2025-09-21T14:23:51.132040+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-21T14:23:51.132040+00:00'
+[2025-09-21T23:33:34.442+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-09-21T23:33:34.442+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-09-21T23:33:34.443+0000] {logging_mixin.py:190} INFO - Current task name:build_scd2_table state:running start_date:2025-09-21 23:33:33.878109+00:00
+[2025-09-21T23:33:34.444+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline and current dag run status:running
+[2025-09-21T23:33:34.445+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-09-21T23:33:34.446+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-09-21T23:33:34.473+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', ' cd /opt/***/dags/../include/nawy_dbt_project && dbt snapshot ']
+[2025-09-21T23:33:34.491+0000] {subprocess.py:99} INFO - Output:
+[2025-09-21T23:33:38.942+0000] {subprocess.py:106} INFO - [0m23:33:38  Running with dbt=1.10.11
+[2025-09-21T23:33:39.606+0000] {subprocess.py:106} INFO - [0m23:33:39  Registered adapter: postgres=1.9.1
+[2025-09-21T23:33:43.003+0000] {subprocess.py:106} INFO - [0m23:33:43  Found 15 models, 1 snapshot, 2 seeds, 553 macros
+[2025-09-21T23:33:43.008+0000] {subprocess.py:106} INFO - [0m23:33:43
+[2025-09-21T23:33:43.009+0000] {subprocess.py:106} INFO - [0m23:33:43  Concurrency: 1 threads (target='dev')
+[2025-09-21T23:33:43.010+0000] {subprocess.py:106} INFO - [0m23:33:43
+[2025-09-21T23:33:43.810+0000] {subprocess.py:106} INFO - [0m23:33:43  1 of 1 START snapshot dwh_snapshots.leads_dim_snapshot ......................... [RUN]
+[2025-09-21T23:33:45.230+0000] {subprocess.py:106} INFO - [0m23:33:45  1 of 1 OK snapshotted dwh_snapshots.leads_dim_snapshot ......................... [[32mINSERT 0 0[0m in 1.41s]
+[2025-09-21T23:33:45.337+0000] {subprocess.py:106} INFO - [0m23:33:45
+[2025-09-21T23:33:45.339+0000] {subprocess.py:106} INFO - [0m23:33:45  Finished running 1 snapshot in 0 hours 0 minutes and 2.33 seconds (2.33s).
+[2025-09-21T23:33:45.918+0000] {subprocess.py:106} INFO - [0m23:33:45
+[2025-09-21T23:33:45.919+0000] {subprocess.py:106} INFO - [0m23:33:45  [32mCompleted successfully[0m
+[2025-09-21T23:33:45.921+0000] {subprocess.py:106} INFO - [0m23:33:45
+[2025-09-21T23:33:45.922+0000] {subprocess.py:106} INFO - [0m23:33:45  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[2025-09-21T23:33:46.990+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-09-21T23:33:47.716+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-09-21T23:33:47.716+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=nawy_real_estate_pipeline, task_id=build_scd2_table, run_id=manual__2025-09-21T14:23:51.132040+00:00, execution_date=20250921T142351, start_date=20250921T233333, end_date=20250921T233347
+[2025-09-21T23:33:48.128+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-09-21T23:33:48.129+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-09-21T23:33:48.129+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline queued_at:2025-09-21 23:24:57.150382+00:00
+[2025-09-21T23:33:48.130+0000] {logging_mixin.py:190} INFO - Task hostname:b65782a7021d operator:BashOperator
+[2025-09-21T23:33:48.180+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-21T23:33:48.209+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-21T23:33:48.240+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

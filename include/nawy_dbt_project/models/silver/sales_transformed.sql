@@ -1,7 +1,7 @@
 {{
      config(materialized='table',
     post_hook=[
-        'CREATE INDEX IF NOT EXISTS lead_idx ON {{this}}(lead_source_id)',
+        'CREATE INDEX IF NOT EXISTS lead_idx ON {{this}}(lead_original_source_id)'
 ])
 
 }}
@@ -12,7 +12,7 @@ with cleaned_data as
     SELECT 
     id ::bigint AS original_source_id,
     {{ standardize_text('sale_category')  }} as sale_category,
-    lead_id::Bigint AS lead_source_id,
+    lead_id::Bigint AS lead_original_source_id,
     area_id::bigint as area_id,
     compound_id::bigint as compound_id,
 TRIM({{ standardize_text("replace(replace(replace(lower(unit_location), 'city', ''), 'of', ''), 'orascom', '')") }}) AS unit_location,
@@ -20,8 +20,13 @@ TRIM({{ standardize_text("replace(replace(replace(lower(unit_location), 'city', 
     {{  standardize_text('property_type')   }} as property_type, 
     unit_value::NUMERIC as unit_value,
     expected_value::NUMERIC as expected_value,
+    
     CASE 
-    WHEN  date_of_contraction IS NOT NULL THEN COALESCE(actual_value::NUMERIC,unit_value::NUMERIC) ELSE actual_value::NUMERIC END as actual_value,
+        WHEN  date_of_contraction IS NOT NULL 
+        THEN COALESCE(actual_value::NUMERIC,unit_value::NUMERIC)
+         ELSE actual_value::NUMERIC 
+    END as actual_value,
+    
     date_of_reservation::TIMESTAMP as reservation_date,
     COALESCE(reservation_update_date::TIMESTAMP,date_of_contraction::TIMESTAMP,date_of_reservation::TIMESTAMP) as reservation_last_update_date,
     date_of_contraction::TIMESTAMP as contraction_date,
@@ -40,14 +45,45 @@ TRIM({{ standardize_text("replace(replace(replace(lower(unit_location), 'city', 
 
 
  ),
+ fill_na as
+ (
 
+    SELECT
+ 
+    original_source_id,
+    sale_category,
+    lead_original_source_id,
+    COALESCE(area_id,(SELECT area_id FROM cleaned_data d2 where d1.unit_location=d2.unit_location LIMIT 1)) as area_id,
+    compound_id,
+    COALESCE(unit_location,(SELECT unit_location FROM cleaned_data d2 where d1.area_id=d2.area_id LIMIT 1)) as unit_location,
+    COALESCE(property_type_id,(SELECT property_type_id FROM cleaned_data d2 where d1.property_type=d2.property_type LIMIT 1)) as property_type_id,
+    COALESCE(property_type,(SELECT property_type FROM cleaned_data d2 where d1.property_type_id=d2.property_type_id LIMIT 1)) as property_type, 
+    
+    unit_value,
+    expected_value,
+    actual_value,
+    
+     reservation_date,
+     reservation_last_update_date,
+    contraction_date,
+    years_of_payment,
+
+    is_finalized,
+    is_orphan_sale,
+    loaded_at
+
+    from cleaned_data d1
+
+
+ )
+,
  duplicates AS --as the id column is not preventing duplication on other cols in the sales_stg table
  (
     SELECT *,
     ROW_NUMBER()  --assuming same lead can't buy multiple properties of the same type in the same location at the same timestamp
     OVER(
         PARTITION BY
-             lead_source_id,
+             lead_original_source_id,
              --unit_value,
              unit_location,
              property_type_id,
@@ -58,7 +94,7 @@ TRIM({{ standardize_text("replace(replace(replace(lower(unit_location), 'city', 
               ORDER BY unit_value DESC NULLS LAST,actual_value DESC NULLS LAST,expected_value DESC NULLS LAST,contraction_date DESC  NULLS LAST,years_of_payment DESC  NULLS LAST--,unit_location NULLS DESC LAST
         ) AS rn 
 
-     FROM cleaned_data
+     FROM fill_na
 
 
 
@@ -71,9 +107,9 @@ TRIM({{ standardize_text("replace(replace(replace(lower(unit_location), 'city', 
 
  SELECT 
 
-    {{ dbt_utils.generate_surrogate_key(['lead_source_id','unit_location','property_type_id','area_id','compound_id','sale_category']) }} AS sale_id,
+    {{ dbt_utils.generate_surrogate_key(['lead_original_source_id','unit_location','property_type_id','area_id','compound_id','sale_category']) }} AS sale_id,
  original_source_id,
- lead_source_id,
+ lead_original_source_id,
  sale_category,
  area_id,
  compound_id,

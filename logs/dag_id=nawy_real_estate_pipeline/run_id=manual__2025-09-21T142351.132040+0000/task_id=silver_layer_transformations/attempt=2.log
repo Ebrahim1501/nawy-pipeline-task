@@ -1,0 +1,57 @@
+[2025-09-21T23:33:02.477+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-21T23:33:02.520+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.silver_layer_transformations manual__2025-09-21T14:23:51.132040+00:00 [queued]>
+[2025-09-21T23:33:02.543+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.silver_layer_transformations manual__2025-09-21T14:23:51.132040+00:00 [queued]>
+[2025-09-21T23:33:02.544+0000] {taskinstance.py:2867} INFO - Starting attempt 2 of 2
+[2025-09-21T23:33:02.734+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): silver_layer_transformations> on 2025-09-21 14:23:51.132040+00:00
+[2025-09-21T23:33:02.746+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=800) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-09-21T23:33:02.749+0000] {standard_task_runner.py:72} INFO - Started process 808 to run task
+[2025-09-21T23:33:02.750+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nawy_real_estate_pipeline', 'silver_layer_transformations', 'manual__2025-09-21T14:23:51.132040+00:00', '--job-id', '401', '--raw', '--subdir', 'DAGS_FOLDER/nawy_dag.py', '--cfg-path', '/tmp/tmpv01an_n6']
+[2025-09-21T23:33:02.752+0000] {standard_task_runner.py:105} INFO - Job 401: Subtask silver_layer_transformations
+[2025-09-21T23:33:02.914+0000] {task_command.py:467} INFO - Running <TaskInstance: nawy_real_estate_pipeline.silver_layer_transformations manual__2025-09-21T14:23:51.132040+00:00 [running]> on host b65782a7021d
+[2025-09-21T23:33:03.508+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nawy_real_estate_pipeline' AIRFLOW_CTX_TASK_ID='silver_layer_transformations' AIRFLOW_CTX_EXECUTION_DATE='2025-09-21T14:23:51.132040+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-21T14:23:51.132040+00:00'
+[2025-09-21T23:33:03.509+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-09-21T23:33:03.510+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-09-21T23:33:03.511+0000] {logging_mixin.py:190} INFO - Current task name:silver_layer_transformations state:running start_date:2025-09-21 23:33:02.521679+00:00
+[2025-09-21T23:33:03.511+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline and current dag run status:running
+[2025-09-21T23:33:03.512+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-09-21T23:33:03.513+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-09-21T23:33:03.744+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', ' cd /opt/***/dags/../include/nawy_dbt_project && dbt run -m models/silver ']
+[2025-09-21T23:33:03.764+0000] {subprocess.py:99} INFO - Output:
+[2025-09-21T23:33:07.947+0000] {subprocess.py:106} INFO - [0m23:33:07  Running with dbt=1.10.11
+[2025-09-21T23:33:07.951+0000] {subprocess.py:106} INFO - [0m23:33:07  [[33mWARNING[0m]: Deprecated functionality
+[2025-09-21T23:33:07.952+0000] {subprocess.py:106} INFO - Usage of `--models`, `--model`, and `-m` is deprecated in favor of `--select` or
+[2025-09-21T23:33:07.953+0000] {subprocess.py:106} INFO - `-s`.
+[2025-09-21T23:33:08.504+0000] {subprocess.py:106} INFO - [0m23:33:08  Registered adapter: postgres=1.9.1
+[2025-09-21T23:33:11.890+0000] {subprocess.py:106} INFO - [0m23:33:11  Found 15 models, 1 snapshot, 2 seeds, 553 macros
+[2025-09-21T23:33:11.903+0000] {subprocess.py:106} INFO - [0m23:33:11
+[2025-09-21T23:33:11.904+0000] {subprocess.py:106} INFO - [0m23:33:11  Concurrency: 1 threads (target='dev')
+[2025-09-21T23:33:11.905+0000] {subprocess.py:106} INFO - [0m23:33:11
+[2025-09-21T23:33:12.823+0000] {subprocess.py:106} INFO - [0m23:33:12  1 of 2 START sql table model dwh.leads_transformed ............................. [RUN]
+[2025-09-21T23:33:15.652+0000] {subprocess.py:106} INFO - [0m23:33:15  1 of 2 OK created sql table model dwh.leads_transformed ........................ [[32mSELECT 55845[0m in 2.82s]
+[2025-09-21T23:33:15.660+0000] {subprocess.py:106} INFO - [0m23:33:15  2 of 2 START sql table model dwh.sales_transformed ............................. [RUN]
+[2025-09-21T23:33:16.139+0000] {subprocess.py:106} INFO - [0m23:33:16  2 of 2 OK created sql table model dwh.sales_transformed ........................ [[32mSELECT 1333[0m in 0.48s]
+[2025-09-21T23:33:16.254+0000] {subprocess.py:106} INFO - [0m23:33:16
+[2025-09-21T23:33:16.256+0000] {subprocess.py:106} INFO - [0m23:33:16  Finished running 2 table models in 0 hours 0 minutes and 4.35 seconds (4.35s).
+[2025-09-21T23:33:16.485+0000] {subprocess.py:106} INFO - [0m23:33:16
+[2025-09-21T23:33:16.488+0000] {subprocess.py:106} INFO - [0m23:33:16  [32mCompleted successfully[0m
+[2025-09-21T23:33:16.490+0000] {subprocess.py:106} INFO - [0m23:33:16
+[2025-09-21T23:33:16.492+0000] {subprocess.py:106} INFO - [0m23:33:16  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
+[2025-09-21T23:33:16.494+0000] {subprocess.py:106} INFO - [0m23:33:16  [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+[2025-09-21T23:33:16.495+0000] {subprocess.py:106} INFO - Summary of encountered deprecations:
+[2025-09-21T23:33:16.496+0000] {subprocess.py:106} INFO - - ModelParamUsageDeprecation: 1 occurrence
+[2025-09-21T23:33:16.497+0000] {subprocess.py:106} INFO - To see all deprecation instances instead of just the first occurrence of each,
+[2025-09-21T23:33:16.498+0000] {subprocess.py:106} INFO - run command again with the `--show-all-deprecations` flag. You may also need to
+[2025-09-21T23:33:16.499+0000] {subprocess.py:106} INFO - run with `--no-partial-parse` as some deprecations are only encountered during
+[2025-09-21T23:33:16.501+0000] {subprocess.py:106} INFO - parsing.
+[2025-09-21T23:33:17.823+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-09-21T23:33:17.913+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-09-21T23:33:17.914+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=nawy_real_estate_pipeline, task_id=silver_layer_transformations, run_id=manual__2025-09-21T14:23:51.132040+00:00, execution_date=20250921T142351, start_date=20250921T233302, end_date=20250921T233317
+[2025-09-21T23:33:18.043+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-09-21T23:33:18.045+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-09-21T23:33:18.046+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline queued_at:2025-09-21 23:24:57.150382+00:00
+[2025-09-21T23:33:18.046+0000] {logging_mixin.py:190} INFO - Task hostname:b65782a7021d operator:BashOperator
+[2025-09-21T23:33:18.106+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-21T23:33:18.148+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-21T23:33:18.175+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

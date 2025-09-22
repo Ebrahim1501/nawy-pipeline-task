@@ -1,7 +1,7 @@
 WITH enrichment AS
 
 (
-    SELECT *,expected_value-actual_value AS discounted_amount,
+    SELECT *,unit_value-actual_value AS discounted_amount,
              (contraction_date::DATE - reservation_last_update_date::DATE) AS days_to_contraction 
              FROM {{ref('sales_transformed')}}
     
@@ -32,13 +32,13 @@ FROM
 
 enrichment s
 
-JOIN {{ref('leads_transformed')}} lead ON {{dbt_utils.generate_surrogate_key(['s.lead_source_id'])}} = lead.lead_id AND  s.is_orphan_sale IS FALSE
+JOIN {{ref('leads_transformed')}} lead ON {{dbt_utils.generate_surrogate_key(['s.lead_original_source_id'])}} = lead.lead_id AND  s.is_orphan_sale IS FALSE
 
 LEFT JOIN {{ref('dim_location')}} loc  ON {{dbt_utils.generate_surrogate_key(['s.area_id','s.compound_id'])}} = loc.location_id
 
 LEFT JOIN {{ref('dim_sale_category')}} cat  ON {{dbt_utils.generate_surrogate_key(['sale_category'])}} = cat.category_id
 
-LEFT JOIN {{ref('dim_lead_scd2')}} l  ON {{dbt_utils.generate_surrogate_key(['s.lead_source_id'])}} = l.lead_id AND l.is_active IS TRUE
+LEFT JOIN {{ref('dim_lead_scd2')}} l  ON {{dbt_utils.generate_surrogate_key(['s.lead_original_source_id'])}} = l.lead_id AND l.is_active IS TRUE
 
 LEFT JOIN {{ref('dim_lead_type')}} ltyp  ON {{dbt_utils.generate_surrogate_key(['lead.lead_type_id'])}} = ltyp.lead_type_id 
 

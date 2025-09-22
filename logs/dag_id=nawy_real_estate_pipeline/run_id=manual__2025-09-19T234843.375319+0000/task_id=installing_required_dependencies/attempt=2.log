@@ -1,0 +1,150 @@
+[2025-09-21T23:17:44.722+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-21T23:17:44.749+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.installing_required_dependencies manual__2025-09-19T23:48:43.375319+00:00 [queued]>
+[2025-09-21T23:17:44.763+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.installing_required_dependencies manual__2025-09-19T23:48:43.375319+00:00 [queued]>
+[2025-09-21T23:17:44.765+0000] {taskinstance.py:2867} INFO - Starting attempt 2 of 2
+[2025-09-21T23:17:44.939+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): installing_required_dependencies> on 2025-09-19 23:48:43.375319+00:00
+[2025-09-21T23:17:44.970+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nawy_real_estate_pipeline', 'installing_required_dependencies', 'manual__2025-09-19T23:48:43.375319+00:00', '--job-id', '343', '--raw', '--subdir', 'DAGS_FOLDER/nawy_dag.py', '--cfg-path', '/tmp/tmpq2cg7x5p']
+[2025-09-21T23:17:44.972+0000] {standard_task_runner.py:105} INFO - Job 343: Subtask installing_required_dependencies
+[2025-09-21T23:17:44.968+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=98) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-09-21T23:17:44.975+0000] {standard_task_runner.py:72} INFO - Started process 144 to run task
+[2025-09-21T23:17:45.269+0000] {task_command.py:467} INFO - Running <TaskInstance: nawy_real_estate_pipeline.installing_required_dependencies manual__2025-09-19T23:48:43.375319+00:00 [running]> on host b65782a7021d
+[2025-09-21T23:17:46.560+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nawy_real_estate_pipeline' AIRFLOW_CTX_TASK_ID='installing_required_dependencies' AIRFLOW_CTX_EXECUTION_DATE='2025-09-19T23:48:43.375319+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-19T23:48:43.375319+00:00'
+[2025-09-21T23:17:46.562+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-09-21T23:17:46.563+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-09-21T23:17:46.564+0000] {logging_mixin.py:190} INFO - Current task name:installing_required_dependencies state:running start_date:2025-09-21 23:17:44.750234+00:00
+[2025-09-21T23:17:46.564+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline and current dag run status:running
+[2025-09-21T23:17:46.565+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-09-21T23:17:46.567+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-09-21T23:17:46.568+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', ' cd /opt/***/dags/../include/nawy_dbt_project && dbt clean &&  dbt deps --no-version-check ']
+[2025-09-21T23:17:46.587+0000] {subprocess.py:99} INFO - Output:
+[2025-09-21T23:19:09.713+0000] {subprocess.py:106} INFO - [0m23:19:09  Running with dbt=1.10.11
+[2025-09-21T23:19:46.376+0000] {subprocess.py:106} INFO - [0m23:19:46  Checking /opt/***/include/nawy_dbt_project/target/*
+[2025-09-21T23:19:47.270+0000] {subprocess.py:106} INFO - [0m23:19:47  Cleaned /opt/***/include/nawy_dbt_project/target/*
+[2025-09-21T23:19:47.271+0000] {subprocess.py:106} INFO - [0m23:19:47  Checking /opt/***/include/nawy_dbt_project/dbt_packages/*
+[2025-09-21T23:19:49.120+0000] {subprocess.py:106} INFO - [0m23:19:49  Cleaned /opt/***/include/nawy_dbt_project/dbt_packages/*
+[2025-09-21T23:19:49.122+0000] {subprocess.py:106} INFO - [0m23:19:49  Finished cleaning all paths.
+[2025-09-21T23:20:49.783+0000] {subprocess.py:106} INFO - [0m23:20:49  Running with dbt=1.10.11
+[2025-09-21T23:20:54.608+0000] {subprocess.py:106} INFO - [0m23:20:54  Installing dbt-labs/dbt_utils
+[2025-09-21T23:21:04.883+0000] {subprocess.py:106} INFO - [0m23:21:04  Encountered an error:
+[2025-09-21T23:21:04.884+0000] {subprocess.py:106} INFO - [Errno 2] No such file or directory: 'dbt_packages/dbt_utils/integration_tests/models/sql'
+[2025-09-21T23:21:04.890+0000] {subprocess.py:106} INFO - [0m23:21:04  Traceback (most recent call last):
+[2025-09-21T23:21:04.891+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 178, in wrapper
+[2025-09-21T23:21:04.892+0000] {subprocess.py:106} INFO -     result, success = func(*args, **kwargs)
+[2025-09-21T23:21:04.893+0000] {subprocess.py:106} INFO -                       ^^^^^^^^^^^^^^^^^^^^^
+[2025-09-21T23:21:04.894+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 128, in wrapper
+[2025-09-21T23:21:04.894+0000] {subprocess.py:106} INFO -     return func(*args, **kwargs)
+[2025-09-21T23:21:04.895+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-09-21T23:21:04.896+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 254, in wrapper
+[2025-09-21T23:21:04.897+0000] {subprocess.py:106} INFO -     return func(*args, **kwargs)
+[2025-09-21T23:21:04.898+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-09-21T23:21:04.898+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 303, in wrapper
+[2025-09-21T23:21:04.900+0000] {subprocess.py:106} INFO -     return func(*args, **kwargs)
+[2025-09-21T23:21:04.902+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-09-21T23:21:04.903+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/main.py", line 461, in deps
+[2025-09-21T23:21:04.904+0000] {subprocess.py:106} INFO -     results = task.run()
+[2025-09-21T23:21:04.905+0000] {subprocess.py:106} INFO -               ^^^^^^^^^^
+[2025-09-21T23:21:04.905+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/task/deps.py", line 258, in run
+[2025-09-21T23:21:04.906+0000] {subprocess.py:106} INFO -     package.install(self.project, renderer)
+[2025-09-21T23:21:04.907+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/deps/registry.py", line 63, in install
+[2025-09-21T23:21:04.907+0000] {subprocess.py:106} INFO -     self._install(project, renderer)
+[2025-09-21T23:21:04.908+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/deps/base.py", line 121, in _install
+[2025-09-21T23:21:04.909+0000] {subprocess.py:106} INFO -     connection_exception_retry(download_untar_fn, 5)
+[2025-09-21T23:21:04.910+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/utils/connection.py", line 22, in connection_exception_retry
+[2025-09-21T23:21:04.910+0000] {subprocess.py:106} INFO -     return fn()
+[2025-09-21T23:21:04.911+0000] {subprocess.py:106} INFO -            ^^^^
+[2025-09-21T23:21:04.912+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/deps/base.py", line 133, in download_and_untar
+[2025-09-21T23:21:04.912+0000] {subprocess.py:106} INFO -     system.untar_package(tar_path, deps_path, package_name)
+[2025-09-21T23:21:04.913+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/clients/system.py", line 649, in untar_package
+[2025-09-21T23:21:04.914+0000] {subprocess.py:106} INFO -     dbt_common.clients.system.rename(downloaded_path, desired_path, force=True)
+[2025-09-21T23:21:04.915+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/clients/system.py", line 610, in rename
+[2025-09-21T23:21:04.915+0000] {subprocess.py:106} INFO -     rmdir(to_path)
+[2025-09-21T23:21:04.916+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/clients/system.py", line 351, in rmdir
+[2025-09-21T23:21:04.916+0000] {subprocess.py:106} INFO -     shutil.rmtree(path, onerror=onerror)
+[2025-09-21T23:21:04.917+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/shutil.py", line 759, in rmtree
+[2025-09-21T23:21:04.917+0000] {subprocess.py:106} INFO -     _rmtree_safe_fd(stack, onexc)
+[2025-09-21T23:21:04.918+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/shutil.py", line 703, in _rmtree_safe_fd
+[2025-09-21T23:21:04.918+0000] {subprocess.py:106} INFO -     onexc(func, path, err)
+[2025-09-21T23:21:04.919+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/shutil.py", line 700, in _rmtree_safe_fd
+[2025-09-21T23:21:04.920+0000] {subprocess.py:106} INFO -     onexc(os.unlink, fullname, err)
+[2025-09-21T23:21:04.920+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/shutil.py", line 698, in _rmtree_safe_fd
+[2025-09-21T23:21:04.921+0000] {subprocess.py:106} INFO -     os.unlink(entry.name, dir_fd=topfd)
+[2025-09-21T23:21:04.922+0000] {subprocess.py:106} INFO - FileNotFoundError: [Errno 2] No such file or directory: 'dbt_packages/dbt_utils/integration_tests/models/sql'
+[2025-09-21T23:21:04.922+0000] {subprocess.py:106} INFO - 
+[2025-09-21T23:21:06.225+0000] {subprocess.py:110} INFO - Command exited with return code 2
+[2025-09-21T23:21:06.997+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-09-21T23:21:07.009+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-09-21T23:21:07.010+0000] {logging_mixin.py:190} INFO - Task start:2025-09-21 23:17:44.750234+00:00 end:2025-09-21 23:21:07.009236+00:00 duration:202.259002
+[2025-09-21T23:21:07.012+0000] {logging_mixin.py:190} INFO - Task:<Task(BashOperator): installing_required_dependencies> dag:<DAG: nawy_real_estate_pipeline> dagrun:<DagRun nawy_real_estate_pipeline @ 2025-09-19 23:48:43.375319+00:00: manual__2025-09-19T23:48:43.375319+00:00, state:running, queued_at: 2025-09-21 23:03:47.690197+00:00. externally triggered: True>
+[2025-09-21T23:21:07.012+0000] {logging_mixin.py:190} INFO - Failure caused by Bash command failed. The command returned a non-zero exit code 2.
+[2025-09-21T23:21:07.013+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=nawy_real_estate_pipeline, task_id=installing_required_dependencies, run_id=manual__2025-09-19T23:48:43.375319+00:00, execution_date=20250919T234843, start_date=20250921T231744, end_date=20250921T232107
+[2025-09-21T23:21:07.331+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-09-21T23:21:07.333+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 343 for task installing_required_dependencies (Bash command failed. The command returned a non-zero exit code 2.; 144)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-09-21T23:21:07.381+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-09-21T23:21:07.433+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-21T23:21:07.622+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

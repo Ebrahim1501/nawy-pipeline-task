@@ -12,5 +12,5 @@ checks for dim_sale_category:
       warn: when > 0
       fail query: |
         SELECT *
-        FROM dim_category
+        FROM dim_sale_category
         WHERE category != LOWER(category)

@@ -38,3 +38,9 @@ models:
       +materialized: table
     gold:
       +materialized: table
+
+seeds:
+  +schema: seeds    
+
+snapshots:
+  +schema: snapshots

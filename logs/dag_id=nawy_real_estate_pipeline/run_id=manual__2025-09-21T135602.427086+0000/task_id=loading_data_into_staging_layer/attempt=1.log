@@ -1,0 +1,57 @@
+[2025-09-21T13:59:41.089+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-21T13:59:41.114+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.loading_data_into_staging_layer manual__2025-09-21T13:56:02.427086+00:00 [queued]>
+[2025-09-21T13:59:41.125+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.loading_data_into_staging_layer manual__2025-09-21T13:56:02.427086+00:00 [queued]>
+[2025-09-21T13:59:41.126+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-09-21T13:59:41.175+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): loading_data_into_staging_layer> on 2025-09-21 13:56:02.427086+00:00
+[2025-09-21T13:59:41.184+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=569) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-09-21T13:59:41.186+0000] {standard_task_runner.py:72} INFO - Started process 571 to run task
+[2025-09-21T13:59:41.187+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nawy_real_estate_pipeline', 'loading_data_into_staging_layer', 'manual__2025-09-21T13:56:02.427086+00:00', '--job-id', '315', '--raw', '--subdir', 'DAGS_FOLDER/nawy_dag.py', '--cfg-path', '/tmp/tmpymxeztyx']
+[2025-09-21T13:59:41.188+0000] {standard_task_runner.py:105} INFO - Job 315: Subtask loading_data_into_staging_layer
+[2025-09-21T13:59:41.272+0000] {task_command.py:467} INFO - Running <TaskInstance: nawy_real_estate_pipeline.loading_data_into_staging_layer manual__2025-09-21T13:56:02.427086+00:00 [running]> on host b65782a7021d
+[2025-09-21T13:59:41.694+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nawy_real_estate_pipeline' AIRFLOW_CTX_TASK_ID='loading_data_into_staging_layer' AIRFLOW_CTX_EXECUTION_DATE='2025-09-21T13:56:02.427086+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-21T13:56:02.427086+00:00'
+[2025-09-21T13:59:41.695+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-09-21T13:59:41.696+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-09-21T13:59:41.697+0000] {logging_mixin.py:190} INFO - Current task name:loading_data_into_staging_layer state:running start_date:2025-09-21 13:59:41.115795+00:00
+[2025-09-21T13:59:41.698+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline and current dag run status:running
+[2025-09-21T13:59:41.698+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-09-21T13:59:41.700+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-09-21T13:59:41.747+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', ' cd /opt/***/dags/../include/nawy_dbt_project && dbt run -m models/bronze  ']
+[2025-09-21T13:59:41.806+0000] {subprocess.py:99} INFO - Output:
+[2025-09-21T13:59:44.993+0000] {subprocess.py:106} INFO - [0m13:59:44  Running with dbt=1.10.11
+[2025-09-21T13:59:44.995+0000] {subprocess.py:106} INFO - [0m13:59:44  [[33mWARNING[0m]: Deprecated functionality
+[2025-09-21T13:59:44.996+0000] {subprocess.py:106} INFO - Usage of `--models`, `--model`, and `-m` is deprecated in favor of `--select` or
+[2025-09-21T13:59:44.997+0000] {subprocess.py:106} INFO - `-s`.
+[2025-09-21T13:59:45.460+0000] {subprocess.py:106} INFO - [0m13:59:45  Registered adapter: postgres=1.9.1
+[2025-09-21T13:59:47.994+0000] {subprocess.py:106} INFO - [0m13:59:47  Found 15 models, 1 snapshot, 2 seeds, 553 macros
+[2025-09-21T13:59:48.005+0000] {subprocess.py:106} INFO - [0m13:59:48
+[2025-09-21T13:59:48.006+0000] {subprocess.py:106} INFO - [0m13:59:48  Concurrency: 1 threads (target='dev')
+[2025-09-21T13:59:48.007+0000] {subprocess.py:106} INFO - [0m13:59:48
+[2025-09-21T13:59:48.725+0000] {subprocess.py:106} INFO - [0m13:59:48  1 of 2 START sql table model dwh.leads_stg ..................................... [RUN]
+[2025-09-21T13:59:49.706+0000] {subprocess.py:106} INFO - [0m13:59:49  1 of 2 OK created sql table model dwh.leads_stg ................................ [[32mSELECT 55924[0m in 0.98s]
+[2025-09-21T13:59:49.711+0000] {subprocess.py:106} INFO - [0m13:59:49  2 of 2 START sql table model dwh.sales_stg ..................................... [RUN]
+[2025-09-21T13:59:49.991+0000] {subprocess.py:106} INFO - [0m13:59:49  2 of 2 OK created sql table model dwh.sales_stg ................................ [[32mSELECT 1567[0m in 0.28s]
+[2025-09-21T13:59:50.086+0000] {subprocess.py:106} INFO - [0m13:59:50
+[2025-09-21T13:59:50.088+0000] {subprocess.py:106} INFO - [0m13:59:50  Finished running 2 table models in 0 hours 0 minutes and 2.08 seconds (2.08s).
+[2025-09-21T13:59:50.206+0000] {subprocess.py:106} INFO - [0m13:59:50
+[2025-09-21T13:59:50.207+0000] {subprocess.py:106} INFO - [0m13:59:50  [32mCompleted successfully[0m
+[2025-09-21T13:59:50.208+0000] {subprocess.py:106} INFO - [0m13:59:50
+[2025-09-21T13:59:50.209+0000] {subprocess.py:106} INFO - [0m13:59:50  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
+[2025-09-21T13:59:50.211+0000] {subprocess.py:106} INFO - [0m13:59:50  [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+[2025-09-21T13:59:50.211+0000] {subprocess.py:106} INFO - Summary of encountered deprecations:
+[2025-09-21T13:59:50.212+0000] {subprocess.py:106} INFO - - ModelParamUsageDeprecation: 1 occurrence
+[2025-09-21T13:59:50.213+0000] {subprocess.py:106} INFO - To see all deprecation instances instead of just the first occurrence of each,
+[2025-09-21T13:59:50.214+0000] {subprocess.py:106} INFO - run command again with the `--show-all-deprecations` flag. You may also need to
+[2025-09-21T13:59:50.214+0000] {subprocess.py:106} INFO - run with `--no-partial-parse` as some deprecations are only encountered during
+[2025-09-21T13:59:50.215+0000] {subprocess.py:106} INFO - parsing.
+[2025-09-21T13:59:51.486+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-09-21T13:59:51.543+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-09-21T13:59:51.545+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=nawy_real_estate_pipeline, task_id=loading_data_into_staging_layer, run_id=manual__2025-09-21T13:56:02.427086+00:00, execution_date=20250921T135602, start_date=20250921T135941, end_date=20250921T135951
+[2025-09-21T13:59:51.660+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-09-21T13:59:51.663+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-09-21T13:59:51.664+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline queued_at:2025-09-21 13:56:02.453367+00:00
+[2025-09-21T13:59:51.665+0000] {logging_mixin.py:190} INFO - Task hostname:b65782a7021d operator:BashOperator
+[2025-09-21T13:59:51.723+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-21T13:59:51.772+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-21T13:59:51.816+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

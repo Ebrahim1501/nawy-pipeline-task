@@ -1,0 +1,48 @@
+[2025-09-22T00:00:25.677+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-22T00:00:25.696+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.ingesting_data_from_sheets scheduled__2025-09-21T00:00:00+00:00 [queued]>
+[2025-09-22T00:00:25.706+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.ingesting_data_from_sheets scheduled__2025-09-21T00:00:00+00:00 [queued]>
+[2025-09-22T00:00:25.706+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-09-22T00:00:25.742+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): ingesting_data_from_sheets> on 2025-09-21 00:00:00+00:00
+[2025-09-22T00:00:25.749+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1423) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-09-22T00:00:25.750+0000] {standard_task_runner.py:72} INFO - Started process 1425 to run task
+[2025-09-22T00:00:25.750+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nawy_real_estate_pipeline', 'ingesting_data_from_sheets', 'scheduled__2025-09-21T00:00:00+00:00', '--job-id', '424', '--raw', '--subdir', 'DAGS_FOLDER/nawy_dag.py', '--cfg-path', '/tmp/tmpbt03csv6']
+[2025-09-22T00:00:25.752+0000] {standard_task_runner.py:105} INFO - Job 424: Subtask ingesting_data_from_sheets
+[2025-09-22T00:00:25.816+0000] {task_command.py:467} INFO - Running <TaskInstance: nawy_real_estate_pipeline.ingesting_data_from_sheets scheduled__2025-09-21T00:00:00+00:00 [running]> on host b65782a7021d
+[2025-09-22T00:00:26.128+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nawy_real_estate_pipeline' AIRFLOW_CTX_TASK_ID='ingesting_data_from_sheets' AIRFLOW_CTX_EXECUTION_DATE='2025-09-21T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-09-21T00:00:00+00:00'
+[2025-09-22T00:00:26.129+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-09-22T00:00:26.130+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-09-22T00:00:26.130+0000] {logging_mixin.py:190} INFO - Current task name:ingesting_data_from_sheets state:running start_date:2025-09-22 00:00:25.697233+00:00
+[2025-09-22T00:00:26.131+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline and current dag run status:running
+[2025-09-22T00:00:26.131+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-09-22T00:00:26.132+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-09-22T00:00:26.133+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', ' cd /opt/***/dags/../include/nawy_dbt_project && dbt seed  ']
+[2025-09-22T00:00:26.142+0000] {subprocess.py:99} INFO - Output:
+[2025-09-22T00:00:29.268+0000] {subprocess.py:106} INFO - [0m00:00:29  Running with dbt=1.10.11
+[2025-09-22T00:00:29.622+0000] {subprocess.py:106} INFO - [0m00:00:29  Registered adapter: postgres=1.9.1
+[2025-09-22T00:00:29.805+0000] {subprocess.py:106} INFO - [0m00:00:29  Unable to do partial parsing because saved manifest not found. Starting full parse.
+[2025-09-22T00:00:34.104+0000] {subprocess.py:106} INFO - [0m00:00:34  Found 15 models, 1 snapshot, 2 seeds, 553 macros
+[2025-09-22T00:00:34.109+0000] {subprocess.py:106} INFO - [0m00:00:34
+[2025-09-22T00:00:34.110+0000] {subprocess.py:106} INFO - [0m00:00:34  Concurrency: 5 threads (target='dev')
+[2025-09-22T00:00:34.111+0000] {subprocess.py:106} INFO - [0m00:00:34
+[2025-09-22T00:00:34.452+0000] {subprocess.py:106} INFO - [0m00:00:34  1 of 2 START seed file dwh_seeds.de_leads ...................................... [RUN]
+[2025-09-22T00:00:34.453+0000] {subprocess.py:106} INFO - [0m00:00:34  2 of 2 START seed file dwh_seeds.de_sales ...................................... [RUN]
+[2025-09-22T00:00:39.815+0000] {subprocess.py:106} INFO - [0m00:00:39  2 of 2 OK loaded seed file dwh_seeds.de_sales .................................. [[32mINSERT 1567[0m in 5.32s]
+[2025-09-22T00:03:25.463+0000] {subprocess.py:106} INFO - [0m00:03:25  1 of 2 OK loaded seed file dwh_seeds.de_leads .................................. [[32mINSERT 55924[0m in 171.01s]
+[2025-09-22T00:03:25.626+0000] {subprocess.py:106} INFO - [0m00:03:25
+[2025-09-22T00:03:25.627+0000] {subprocess.py:106} INFO - [0m00:03:25  Finished running 2 seeds in 0 hours 2 minutes and 51.51 seconds (171.51s).
+[2025-09-22T00:03:25.723+0000] {subprocess.py:106} INFO - [0m00:03:25
+[2025-09-22T00:03:25.724+0000] {subprocess.py:106} INFO - [0m00:03:25  [32mCompleted successfully[0m
+[2025-09-22T00:03:25.725+0000] {subprocess.py:106} INFO - [0m00:03:25
+[2025-09-22T00:03:25.726+0000] {subprocess.py:106} INFO - [0m00:03:25  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
+[2025-09-22T00:03:26.806+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-09-22T00:03:26.862+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-09-22T00:03:26.862+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=nawy_real_estate_pipeline, task_id=ingesting_data_from_sheets, run_id=scheduled__2025-09-21T00:00:00+00:00, execution_date=20250921T000000, start_date=20250922T000025, end_date=20250922T000326
+[2025-09-22T00:03:26.940+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-09-22T00:03:26.941+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-09-22T00:03:26.941+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline queued_at:2025-09-22 00:00:00.042341+00:00
+[2025-09-22T00:03:26.942+0000] {logging_mixin.py:190} INFO - Task hostname:b65782a7021d operator:BashOperator
+[2025-09-22T00:03:26.956+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-22T00:03:26.984+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-22T00:03:27.004+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,75 @@
+[2025-09-21T23:33:51.518+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-21T23:33:51.565+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.build_fact_and_dim_tables manual__2025-09-21T14:23:51.132040+00:00 [queued]>
+[2025-09-21T23:33:51.580+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.build_fact_and_dim_tables manual__2025-09-21T14:23:51.132040+00:00 [queued]>
+[2025-09-21T23:33:51.580+0000] {taskinstance.py:2867} INFO - Starting attempt 2 of 2
+[2025-09-21T23:33:51.644+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): build_fact_and_dim_tables> on 2025-09-21 14:23:51.132040+00:00
+[2025-09-21T23:33:51.653+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=913) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-09-21T23:33:51.655+0000] {standard_task_runner.py:72} INFO - Started process 915 to run task
+[2025-09-21T23:33:51.656+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nawy_real_estate_pipeline', 'build_fact_and_dim_tables', 'manual__2025-09-21T14:23:51.132040+00:00', '--job-id', '409', '--raw', '--subdir', 'DAGS_FOLDER/nawy_dag.py', '--cfg-path', '/tmp/tmpm_n2l0fq']
+[2025-09-21T23:33:51.658+0000] {standard_task_runner.py:105} INFO - Job 409: Subtask build_fact_and_dim_tables
+[2025-09-21T23:33:51.772+0000] {task_command.py:467} INFO - Running <TaskInstance: nawy_real_estate_pipeline.build_fact_and_dim_tables manual__2025-09-21T14:23:51.132040+00:00 [running]> on host b65782a7021d
+[2025-09-21T23:33:52.615+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nawy_real_estate_pipeline' AIRFLOW_CTX_TASK_ID='build_fact_and_dim_tables' AIRFLOW_CTX_EXECUTION_DATE='2025-09-21T14:23:51.132040+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-21T14:23:51.132040+00:00'
+[2025-09-21T23:33:52.616+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-09-21T23:33:52.616+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-09-21T23:33:52.617+0000] {logging_mixin.py:190} INFO - Current task name:build_fact_and_dim_tables state:running start_date:2025-09-21 23:33:51.566095+00:00
+[2025-09-21T23:33:52.618+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline and current dag run status:running
+[2025-09-21T23:33:52.618+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-09-21T23:33:52.619+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-09-21T23:33:52.640+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', ' cd /opt/***/dags/../include/nawy_dbt_project && dbt run -m models/gold  ']
+[2025-09-21T23:33:52.656+0000] {subprocess.py:99} INFO - Output:
+[2025-09-21T23:33:59.376+0000] {subprocess.py:106} INFO - [0m23:33:59  Running with dbt=1.10.11
+[2025-09-21T23:33:59.381+0000] {subprocess.py:106} INFO - [0m23:33:59  [[33mWARNING[0m]: Deprecated functionality
+[2025-09-21T23:33:59.383+0000] {subprocess.py:106} INFO - Usage of `--models`, `--model`, and `-m` is deprecated in favor of `--select` or
+[2025-09-21T23:33:59.384+0000] {subprocess.py:106} INFO - `-s`.
+[2025-09-21T23:34:00.139+0000] {subprocess.py:106} INFO - [0m23:34:00  Registered adapter: postgres=1.9.1
+[2025-09-21T23:34:03.919+0000] {subprocess.py:106} INFO - [0m23:34:03  Found 15 models, 1 snapshot, 2 seeds, 553 macros
+[2025-09-21T23:34:03.937+0000] {subprocess.py:106} INFO - [0m23:34:03
+[2025-09-21T23:34:03.939+0000] {subprocess.py:106} INFO - [0m23:34:03  Concurrency: 1 threads (target='dev')
+[2025-09-21T23:34:03.940+0000] {subprocess.py:106} INFO - [0m23:34:03
+[2025-09-21T23:34:04.614+0000] {subprocess.py:106} INFO - [0m23:34:04  1 of 11 START sql table model dwh.dim_contact_method ........................... [RUN]
+[2025-09-21T23:34:05.343+0000] {subprocess.py:106} INFO - [0m23:34:05  1 of 11 OK created sql table model dwh.dim_contact_method ...................... [[32mSELECT 76[0m in 0.72s]
+[2025-09-21T23:34:05.347+0000] {subprocess.py:106} INFO - [0m23:34:05  2 of 11 START sql table model dwh.dim_date ..................................... [RUN]
+[2025-09-21T23:34:05.885+0000] {subprocess.py:106} INFO - [0m23:34:05  2 of 11 OK created sql table model dwh.dim_date ................................ [[32mSELECT 2199[0m in 0.53s]
+[2025-09-21T23:34:05.889+0000] {subprocess.py:106} INFO - [0m23:34:05  3 of 11 START sql table model dwh.dim_lead_scd2 ................................ [RUN]
+[2025-09-21T23:34:06.822+0000] {subprocess.py:106} INFO - [0m23:34:06  3 of 11 OK created sql table model dwh.dim_lead_scd2 ........................... [[32mSELECT 55845[0m in 0.93s]
+[2025-09-21T23:34:06.826+0000] {subprocess.py:106} INFO - [0m23:34:06  4 of 11 START sql table model dwh.dim_lead_source .............................. [RUN]
+[2025-09-21T23:34:07.079+0000] {subprocess.py:106} INFO - [0m23:34:07  4 of 11 OK created sql table model dwh.dim_lead_source ......................... [[32mSELECT 94[0m in 0.25s]
+[2025-09-21T23:34:07.083+0000] {subprocess.py:106} INFO - [0m23:34:07  5 of 11 START sql table model dwh.dim_lead_type ................................ [RUN]
+[2025-09-21T23:34:07.435+0000] {subprocess.py:106} INFO - [0m23:34:07  5 of 11 OK created sql table model dwh.dim_lead_type ........................... [[32mSELECT 10[0m in 0.35s]
+[2025-09-21T23:34:07.439+0000] {subprocess.py:106} INFO - [0m23:34:07  6 of 11 START sql table model dwh.dim_location ................................. [RUN]
+[2025-09-21T23:34:07.718+0000] {subprocess.py:106} INFO - [0m23:34:07  6 of 11 OK created sql table model dwh.dim_location ............................ [[32mSELECT 374[0m in 0.27s]
+[2025-09-21T23:34:07.724+0000] {subprocess.py:106} INFO - [0m23:34:07  7 of 11 START sql table model dwh.dim_market_campaign .......................... [RUN]
+[2025-09-21T23:34:08.104+0000] {subprocess.py:106} INFO - [0m23:34:08  7 of 11 OK created sql table model dwh.dim_market_campaign ..................... [[32mSELECT 1469[0m in 0.38s]
+[2025-09-21T23:34:08.110+0000] {subprocess.py:106} INFO - [0m23:34:08  8 of 11 START sql table model dwh.dim_property_type ............................ [RUN]
+[2025-09-21T23:34:08.349+0000] {subprocess.py:106} INFO - [0m23:34:08  8 of 11 OK created sql table model dwh.dim_property_type ....................... [[32mSELECT 14[0m in 0.23s]
+[2025-09-21T23:34:08.354+0000] {subprocess.py:106} INFO - [0m23:34:08  9 of 11 START sql table model dwh.dim_sale_category ............................ [RUN]
+[2025-09-21T23:34:09.141+0000] {subprocess.py:106} INFO - [0m23:34:09  9 of 11 OK created sql table model dwh.dim_sale_category ....................... [[32mSELECT 6[0m in 0.78s]
+[2025-09-21T23:34:09.144+0000] {subprocess.py:106} INFO - [0m23:34:09  10 of 11 START sql table model dwh.leads_fact .................................. [RUN]
+[2025-09-21T23:34:11.819+0000] {subprocess.py:106} INFO - [0m23:34:11  10 of 11 OK created sql table model dwh.leads_fact ............................. [[32mSELECT 55845[0m in 2.67s]
+[2025-09-21T23:34:11.823+0000] {subprocess.py:106} INFO - [0m23:34:11  11 of 11 START sql table model dwh.sales_fact .................................. [RUN]
+[2025-09-21T23:34:13.359+0000] {subprocess.py:106} INFO - [0m23:34:13  11 of 11 OK created sql table model dwh.sales_fact ............................. [[32mSELECT 1333[0m in 1.53s]
+[2025-09-21T23:34:13.457+0000] {subprocess.py:106} INFO - [0m23:34:13
+[2025-09-21T23:34:13.459+0000] {subprocess.py:106} INFO - [0m23:34:13  Finished running 11 table models in 0 hours 0 minutes and 9.51 seconds (9.51s).
+[2025-09-21T23:34:13.595+0000] {subprocess.py:106} INFO - [0m23:34:13
+[2025-09-21T23:34:13.596+0000] {subprocess.py:106} INFO - [0m23:34:13  [32mCompleted successfully[0m
+[2025-09-21T23:34:13.597+0000] {subprocess.py:106} INFO - [0m23:34:13
+[2025-09-21T23:34:13.598+0000] {subprocess.py:106} INFO - [0m23:34:13  Done. PASS=11 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=11
+[2025-09-21T23:34:13.599+0000] {subprocess.py:106} INFO - [0m23:34:13  [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+[2025-09-21T23:34:13.600+0000] {subprocess.py:106} INFO - Summary of encountered deprecations:
+[2025-09-21T23:34:13.600+0000] {subprocess.py:106} INFO - - ModelParamUsageDeprecation: 1 occurrence
+[2025-09-21T23:34:13.601+0000] {subprocess.py:106} INFO - To see all deprecation instances instead of just the first occurrence of each,
+[2025-09-21T23:34:13.601+0000] {subprocess.py:106} INFO - run command again with the `--show-all-deprecations` flag. You may also need to
+[2025-09-21T23:34:13.602+0000] {subprocess.py:106} INFO - run with `--no-partial-parse` as some deprecations are only encountered during
+[2025-09-21T23:34:13.602+0000] {subprocess.py:106} INFO - parsing.
+[2025-09-21T23:34:14.820+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-09-21T23:34:14.901+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-09-21T23:34:14.902+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=nawy_real_estate_pipeline, task_id=build_fact_and_dim_tables, run_id=manual__2025-09-21T14:23:51.132040+00:00, execution_date=20250921T142351, start_date=20250921T233351, end_date=20250921T233414
+[2025-09-21T23:34:14.988+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-09-21T23:34:14.989+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-09-21T23:34:14.989+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline queued_at:2025-09-21 23:24:57.150382+00:00
+[2025-09-21T23:34:14.993+0000] {logging_mixin.py:190} INFO - Task hostname:b65782a7021d operator:BashOperator
+[2025-09-21T23:34:15.045+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-21T23:34:15.073+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-21T23:34:15.105+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -8,9 +8,9 @@ WITH cleaned_data AS
     
     id :: bigint  as original_source_id,
     
-    COALESCE(buyer,FALSE)::boolean AS is_buyer,
+    COALESCE(buyer,FALSE)::boolean AS is_buyer, --default to false
     
-    COALESCE(seller,FALSE)::boolean as is_seller,
+    COALESCE(seller,FALSE)::boolean as is_seller, 
     
     best_time_to_call as best_time_to_call,
     
@@ -59,6 +59,13 @@ WITH cleaned_data AS
 
 FROM {{ref('leads_stg')}}
 
+),
+dedupe AS
+(
+    SELECT *,ROW_NUMBER() OVER(PARTITION by original_source_id ORDER BY updated_at DESC) as rn FROM cleaned_data 
+
+
+
 )
 
 
@@ -66,7 +73,8 @@ FROM {{ref('leads_stg')}}
 
 SELECT  {{ dbt_utils.generate_surrogate_key(['original_source_id']) }} AS lead_id ,*  --preserve the original lead source id as it ensure deduplication amongst all rows
 
-FROM cleaned_data 
+FROM dedupe 
+where rn = 1
 
 
 

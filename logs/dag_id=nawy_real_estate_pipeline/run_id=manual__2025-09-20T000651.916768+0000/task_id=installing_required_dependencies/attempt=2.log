@@ -1,0 +1,44 @@
+[2025-09-21T23:20:51.499+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-21T23:20:51.538+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.installing_required_dependencies manual__2025-09-20T00:06:51.916768+00:00 [queued]>
+[2025-09-21T23:20:51.545+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.installing_required_dependencies manual__2025-09-20T00:06:51.916768+00:00 [queued]>
+[2025-09-21T23:20:51.546+0000] {taskinstance.py:2867} INFO - Starting attempt 2 of 2
+[2025-09-21T23:20:51.708+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): installing_required_dependencies> on 2025-09-20 00:06:51.916768+00:00
+[2025-09-21T23:20:51.719+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nawy_real_estate_pipeline', 'installing_required_dependencies', 'manual__2025-09-20T00:06:51.916768+00:00', '--job-id', '356', '--raw', '--subdir', 'DAGS_FOLDER/nawy_dag.py', '--cfg-path', '/tmp/tmp92rg4hky']
+[2025-09-21T23:20:51.720+0000] {standard_task_runner.py:105} INFO - Job 356: Subtask installing_required_dependencies
+[2025-09-21T23:20:51.740+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=228) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-09-21T23:20:51.741+0000] {standard_task_runner.py:72} INFO - Started process 252 to run task
+[2025-09-21T23:20:51.846+0000] {task_command.py:467} INFO - Running <TaskInstance: nawy_real_estate_pipeline.installing_required_dependencies manual__2025-09-20T00:06:51.916768+00:00 [running]> on host b65782a7021d
+[2025-09-21T23:20:52.261+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nawy_real_estate_pipeline' AIRFLOW_CTX_TASK_ID='installing_required_dependencies' AIRFLOW_CTX_EXECUTION_DATE='2025-09-20T00:06:51.916768+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-20T00:06:51.916768+00:00'
+[2025-09-21T23:20:52.263+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-09-21T23:20:52.264+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-09-21T23:20:52.265+0000] {logging_mixin.py:190} INFO - Current task name:installing_required_dependencies state:running start_date:2025-09-21 23:20:51.539361+00:00
+[2025-09-21T23:20:52.265+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline and current dag run status:running
+[2025-09-21T23:20:52.266+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-09-21T23:20:52.267+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-09-21T23:20:52.305+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', ' cd /opt/***/dags/../include/nawy_dbt_project && dbt clean &&  dbt deps --no-version-check ']
+[2025-09-21T23:20:52.315+0000] {subprocess.py:99} INFO - Output:
+[2025-09-21T23:20:57.991+0000] {subprocess.py:106} INFO - [0m23:20:57  Running with dbt=1.10.11
+[2025-09-21T23:20:58.497+0000] {subprocess.py:106} INFO - [0m23:20:58  Checking /opt/***/include/nawy_dbt_project/dbt_packages/*
+[2025-09-21T23:20:58.651+0000] {subprocess.py:106} INFO - [0m23:20:58  Cleaned /opt/***/include/nawy_dbt_project/dbt_packages/*
+[2025-09-21T23:20:58.653+0000] {subprocess.py:106} INFO - [0m23:20:58  Checking /opt/***/include/nawy_dbt_project/target/*
+[2025-09-21T23:20:58.654+0000] {subprocess.py:106} INFO - [0m23:20:58  Cleaned /opt/***/include/nawy_dbt_project/target/*
+[2025-09-21T23:20:58.655+0000] {subprocess.py:106} INFO - [0m23:20:58  Finished cleaning all paths.
+[2025-09-21T23:21:06.487+0000] {subprocess.py:106} INFO - [0m23:21:06  Running with dbt=1.10.11
+[2025-09-21T23:21:07.501+0000] {subprocess.py:106} INFO - [0m23:21:07  Installing dbt-labs/dbt_utils
+[2025-09-21T23:21:14.035+0000] {subprocess.py:106} INFO - [0m23:21:14  Installed from version 1.3.0
+[2025-09-21T23:21:14.035+0000] {subprocess.py:106} INFO - [0m23:21:14  Updated version available: 1.3.1
+[2025-09-21T23:21:14.037+0000] {subprocess.py:106} INFO - [0m23:21:14
+[2025-09-21T23:21:14.038+0000] {subprocess.py:106} INFO - [0m23:21:14  Updates available for packages: ['dbt-labs/dbt_utils']
+[2025-09-21T23:21:14.039+0000] {subprocess.py:106} INFO - Update your versions in packages.yml, then run dbt deps
+[2025-09-21T23:21:15.059+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-09-21T23:21:15.545+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-09-21T23:21:15.546+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=nawy_real_estate_pipeline, task_id=installing_required_dependencies, run_id=manual__2025-09-20T00:06:51.916768+00:00, execution_date=20250920T000651, start_date=20250921T232051, end_date=20250921T232115
+[2025-09-21T23:21:16.051+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-09-21T23:21:16.052+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-09-21T23:21:16.053+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline queued_at:2025-09-21 23:03:47.690271+00:00
+[2025-09-21T23:21:16.054+0000] {logging_mixin.py:190} INFO - Task hostname:b65782a7021d operator:BashOperator
+[2025-09-21T23:21:16.094+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-21T23:21:16.173+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-21T23:21:16.250+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

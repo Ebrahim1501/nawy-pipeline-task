@@ -1,6 +1,6 @@
 checks for sales_transformed:
 
-  - duplicate_count(lead_source_id, unit_location, property_type_id, area_id, compound_id, sale_category) = 0:
+  - duplicate_count(lead_original_source_id, unit_location, property_type_id, area_id, compound_id, sale_category) = 0:
       name: " combination used in key generation must be unique per each record"
       fail: when > 0
 

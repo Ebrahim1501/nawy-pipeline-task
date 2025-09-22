@@ -22,7 +22,7 @@ def  convert_seeds_to_csv():
             df = pd.read_excel(file_path)
             df.to_csv(csv_path, index=False)
             
-dag=DAG(dag_id="nawy_real_estate_pipeline",start_date=datetime(2024,1,1),end_date=None,schedule="@daily",catchup=False)
+dag=DAG(dag_id="nawy_real_estate_pipeline",start_date=datetime(2024,1,1),end_date=None,schedule="@daily",catchup=False,tags=['nawy','medallian'])
 
 
 

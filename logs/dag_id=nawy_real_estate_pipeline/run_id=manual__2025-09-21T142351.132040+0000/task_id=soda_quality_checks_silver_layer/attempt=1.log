@@ -1,0 +1,60 @@
+[2025-09-21T14:28:02.906+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-21T14:28:02.938+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.soda_quality_checks_silver_layer manual__2025-09-21T14:23:51.132040+00:00 [queued]>
+[2025-09-21T14:28:02.951+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.soda_quality_checks_silver_layer manual__2025-09-21T14:23:51.132040+00:00 [queued]>
+[2025-09-21T14:28:02.952+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-09-21T14:28:02.996+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): soda_quality_checks_silver_layer> on 2025-09-21 14:23:51.132040+00:00
+[2025-09-21T14:28:03.004+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1170) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-09-21T14:28:03.007+0000] {standard_task_runner.py:72} INFO - Started process 1172 to run task
+[2025-09-21T14:28:03.008+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nawy_real_estate_pipeline', 'soda_quality_checks_silver_layer', 'manual__2025-09-21T14:23:51.132040+00:00', '--job-id', '335', '--raw', '--subdir', 'DAGS_FOLDER/nawy_dag.py', '--cfg-path', '/tmp/tmpp734x0e0']
+[2025-09-21T14:28:03.011+0000] {standard_task_runner.py:105} INFO - Job 335: Subtask soda_quality_checks_silver_layer
+[2025-09-21T14:28:03.108+0000] {task_command.py:467} INFO - Running <TaskInstance: nawy_real_estate_pipeline.soda_quality_checks_silver_layer manual__2025-09-21T14:23:51.132040+00:00 [running]> on host b65782a7021d
+[2025-09-21T14:28:03.470+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nawy_real_estate_pipeline' AIRFLOW_CTX_TASK_ID='soda_quality_checks_silver_layer' AIRFLOW_CTX_EXECUTION_DATE='2025-09-21T14:23:51.132040+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-21T14:23:51.132040+00:00'
+[2025-09-21T14:28:03.471+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-09-21T14:28:03.471+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-09-21T14:28:03.472+0000] {logging_mixin.py:190} INFO - Current task name:soda_quality_checks_silver_layer state:running start_date:2025-09-21 14:28:02.939011+00:00
+[2025-09-21T14:28:03.472+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline and current dag run status:running
+[2025-09-21T14:28:03.473+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-09-21T14:28:03.474+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-09-21T14:28:03.475+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', ' cd /opt/***/dags/../include/nawy_soda_project && soda scan  -d nawy_task_destination -c configuration.yml checks/silver || true']
+[2025-09-21T14:28:03.487+0000] {subprocess.py:99} INFO - Output:
+[2025-09-21T14:28:04.939+0000] {subprocess.py:106} INFO - [14:28:04] Soda Core 3.5.5
+[2025-09-21T14:28:05.378+0000] {subprocess.py:106} INFO - [14:28:05] Using DefaultSampler
+[2025-09-21T14:28:05.381+0000] {subprocess.py:106} INFO - [14:28:05] Using DefaultSampler
+[2025-09-21T14:28:05.384+0000] {subprocess.py:106} INFO - [14:28:05] Using DefaultSampler
+[2025-09-21T14:28:05.395+0000] {subprocess.py:106} INFO - [14:28:05] Using DefaultSampler
+[2025-09-21T14:28:05.415+0000] {subprocess.py:106} INFO - [14:28:05] Using DefaultSampler
+[2025-09-21T14:28:05.503+0000] {subprocess.py:106} INFO - [14:28:05] Using DefaultSampler
+[2025-09-21T14:28:05.550+0000] {subprocess.py:106} INFO - [14:28:05] Using DefaultSampler
+[2025-09-21T14:28:05.551+0000] {subprocess.py:106} INFO - [14:28:05] Scan summary:
+[2025-09-21T14:28:05.552+0000] {subprocess.py:106} INFO - [14:28:05] 9/11 checks PASSED:
+[2025-09-21T14:28:05.552+0000] {subprocess.py:106} INFO - [14:28:05]     sales_transformed in nawy_task_destination
+[2025-09-21T14:28:05.553+0000] {subprocess.py:106} INFO - [14:28:05]        combination used in key generation must be unique per each record [PASSED]
+[2025-09-21T14:28:05.554+0000] {subprocess.py:106} INFO - [14:28:05]       Finalized sales must have an actual_value [PASSED]
+[2025-09-21T14:28:05.555+0000] {subprocess.py:106} INFO - [14:28:05]       Orphan sales entries (no lead_id) should not exist [PASSED]
+[2025-09-21T14:28:05.555+0000] {subprocess.py:106} INFO - [14:28:05]       sale_id must be unique [PASSED]
+[2025-09-21T14:28:05.556+0000] {subprocess.py:106} INFO - [14:28:05]     leads_transformed in nawy_task_destination
+[2025-09-21T14:28:05.557+0000] {subprocess.py:106} INFO - [14:28:05]       last contact date cant be in the future [PASSED]
+[2025-09-21T14:28:05.557+0000] {subprocess.py:106} INFO - [14:28:05]       all status names should be standardized to lowercase [PASSED]
+[2025-09-21T14:28:05.558+0000] {subprocess.py:106} INFO - [14:28:05]       all lead_types should be standardized to lowercase [PASSED]
+[2025-09-21T14:28:05.559+0000] {subprocess.py:106} INFO - [14:28:05]       lead_id cannot be null [PASSED]
+[2025-09-21T14:28:05.560+0000] {subprocess.py:106} INFO - [14:28:05]       the value campaign ='(none)' is not valid here [PASSED]
+[2025-09-21T14:28:05.560+0000] {subprocess.py:106} INFO - [14:28:05] 2/11 checks WARNED:
+[2025-09-21T14:28:05.561+0000] {subprocess.py:106} INFO - [14:28:05]     sales_transformed in nawy_task_destination
+[2025-09-21T14:28:05.562+0000] {subprocess.py:106} INFO - [14:28:05]       Contraction date must be after or on the reservation date [WARNED]
+[2025-09-21T14:28:05.563+0000] {subprocess.py:106} INFO - [14:28:05]         value: 2
+[2025-09-21T14:28:05.564+0000] {subprocess.py:106} INFO - [14:28:05]     leads_transformed in nawy_task_destination
+[2025-09-21T14:28:05.564+0000] {subprocess.py:106} INFO - [14:28:05]       updated_at must be after or equal to the created timestamp [WARNED]
+[2025-09-21T14:28:05.565+0000] {subprocess.py:106} INFO - [14:28:05]         value: 1
+[2025-09-21T14:28:05.566+0000] {subprocess.py:106} INFO - [14:28:05] Only 2 warnings. 0 failures. 0 errors. 9 pass.
+[2025-09-21T14:28:06.187+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-09-21T14:28:06.246+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-09-21T14:28:06.247+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=nawy_real_estate_pipeline, task_id=soda_quality_checks_silver_layer, run_id=manual__2025-09-21T14:23:51.132040+00:00, execution_date=20250921T142351, start_date=20250921T142802, end_date=20250921T142806
+[2025-09-21T14:28:06.335+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-09-21T14:28:06.335+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-09-21T14:28:06.336+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline queued_at:2025-09-21 14:23:51.171994+00:00
+[2025-09-21T14:28:06.337+0000] {logging_mixin.py:190} INFO - Task hostname:b65782a7021d operator:BashOperator
+[2025-09-21T14:28:06.361+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-21T14:28:06.393+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-21T14:28:06.421+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

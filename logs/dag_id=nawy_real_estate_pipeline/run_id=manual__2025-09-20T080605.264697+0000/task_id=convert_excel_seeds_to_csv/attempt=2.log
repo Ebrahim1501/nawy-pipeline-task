@@ -1,0 +1,28 @@
+[2025-09-21T23:22:52.672+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-21T23:22:52.695+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.convert_excel_seeds_to_csv manual__2025-09-20T08:06:05.264697+00:00 [queued]>
+[2025-09-21T23:22:52.705+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.convert_excel_seeds_to_csv manual__2025-09-20T08:06:05.264697+00:00 [queued]>
+[2025-09-21T23:22:52.706+0000] {taskinstance.py:2867} INFO - Starting attempt 2 of 2
+[2025-09-21T23:22:52.794+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): convert_excel_seeds_to_csv> on 2025-09-20 08:06:05.264697+00:00
+[2025-09-21T23:22:52.801+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=540) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-09-21T23:22:52.803+0000] {standard_task_runner.py:72} INFO - Started process 542 to run task
+[2025-09-21T23:22:52.803+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nawy_real_estate_pipeline', 'convert_excel_seeds_to_csv', 'manual__2025-09-20T08:06:05.264697+00:00', '--job-id', '390', '--raw', '--subdir', 'DAGS_FOLDER/nawy_dag.py', '--cfg-path', '/tmp/tmpulhmc48j']
+[2025-09-21T23:22:52.804+0000] {standard_task_runner.py:105} INFO - Job 390: Subtask convert_excel_seeds_to_csv
+[2025-09-21T23:22:52.966+0000] {task_command.py:467} INFO - Running <TaskInstance: nawy_real_estate_pipeline.convert_excel_seeds_to_csv manual__2025-09-20T08:06:05.264697+00:00 [running]> on host b65782a7021d
+[2025-09-21T23:22:53.357+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nawy_real_estate_pipeline' AIRFLOW_CTX_TASK_ID='convert_excel_seeds_to_csv' AIRFLOW_CTX_EXECUTION_DATE='2025-09-20T08:06:05.264697+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-20T08:06:05.264697+00:00'
+[2025-09-21T23:22:53.358+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-09-21T23:22:53.359+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-09-21T23:22:53.359+0000] {logging_mixin.py:190} INFO - Current task name:convert_excel_seeds_to_csv state:running start_date:2025-09-21 23:22:52.696352+00:00
+[2025-09-21T23:22:53.360+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline and current dag run status:running
+[2025-09-21T23:22:53.361+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-09-21T23:22:53.365+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-09-21T23:22:53.376+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-09-21T23:22:53.377+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=nawy_real_estate_pipeline, task_id=convert_excel_seeds_to_csv, run_id=manual__2025-09-20T08:06:05.264697+00:00, execution_date=20250920T080605, start_date=20250921T232252, end_date=20250921T232253
+[2025-09-21T23:22:53.447+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-09-21T23:22:53.448+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-09-21T23:22:53.449+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline queued_at:2025-09-21 23:03:47.690393+00:00
+[2025-09-21T23:22:53.449+0000] {logging_mixin.py:190} INFO - Task hostname:b65782a7021d operator:PythonOperator
+[2025-09-21T23:22:53.499+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-09-21T23:22:53.538+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-09-21T23:22:53.564+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

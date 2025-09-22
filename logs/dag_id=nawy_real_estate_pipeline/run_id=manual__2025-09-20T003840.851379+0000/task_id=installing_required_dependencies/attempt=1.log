@@ -1,0 +1,154 @@
+[2025-09-21T23:21:20.234+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-09-21T23:21:20.279+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.installing_required_dependencies manual__2025-09-20T00:38:40.851379+00:00 [queued]>
+[2025-09-21T23:21:20.299+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: nawy_real_estate_pipeline.installing_required_dependencies manual__2025-09-20T00:38:40.851379+00:00 [queued]>
+[2025-09-21T23:21:20.300+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-09-21T23:21:20.376+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): installing_required_dependencies> on 2025-09-20 00:38:40.851379+00:00
+[2025-09-21T23:21:20.387+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=271) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-09-21T23:21:20.391+0000] {standard_task_runner.py:72} INFO - Started process 312 to run task
+[2025-09-21T23:21:20.413+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'nawy_real_estate_pipeline', 'installing_required_dependencies', 'manual__2025-09-20T00:38:40.851379+00:00', '--job-id', '361', '--raw', '--subdir', 'DAGS_FOLDER/nawy_dag.py', '--cfg-path', '/tmp/tmpydpdnisc']
+[2025-09-21T23:21:20.427+0000] {standard_task_runner.py:105} INFO - Job 361: Subtask installing_required_dependencies
+[2025-09-21T23:21:20.630+0000] {task_command.py:467} INFO - Running <TaskInstance: nawy_real_estate_pipeline.installing_required_dependencies manual__2025-09-20T00:38:40.851379+00:00 [running]> on host b65782a7021d
+[2025-09-21T23:21:21.307+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='nawy_real_estate_pipeline' AIRFLOW_CTX_TASK_ID='installing_required_dependencies' AIRFLOW_CTX_EXECUTION_DATE='2025-09-20T00:38:40.851379+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-20T00:38:40.851379+00:00'
+[2025-09-21T23:21:21.311+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-09-21T23:21:21.312+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-09-21T23:21:21.313+0000] {logging_mixin.py:190} INFO - Current task name:installing_required_dependencies state:running start_date:2025-09-21 23:21:20.280640+00:00
+[2025-09-21T23:21:21.314+0000] {logging_mixin.py:190} INFO - Dag name:nawy_real_estate_pipeline and current dag run status:running
+[2025-09-21T23:21:21.315+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-09-21T23:21:21.317+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-09-21T23:21:21.333+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', ' cd /opt/***/dags/../include/nawy_dbt_project && dbt clean &&  dbt deps --no-version-check ']
+[2025-09-21T23:21:21.368+0000] {subprocess.py:99} INFO - Output:
+[2025-09-21T23:21:31.370+0000] {subprocess.py:106} INFO - [0m23:21:31  Running with dbt=1.10.11
+[2025-09-21T23:21:32.018+0000] {subprocess.py:106} INFO - [0m23:21:32  Checking /opt/***/include/nawy_dbt_project/target/*
+[2025-09-21T23:21:32.021+0000] {subprocess.py:106} INFO - [0m23:21:32  Cleaned /opt/***/include/nawy_dbt_project/target/*
+[2025-09-21T23:21:32.022+0000] {subprocess.py:106} INFO - [0m23:21:32  Checking /opt/***/include/nawy_dbt_project/dbt_packages/*
+[2025-09-21T23:21:32.025+0000] {subprocess.py:106} INFO - [0m23:21:32  Cleaned /opt/***/include/nawy_dbt_project/dbt_packages/*
+[2025-09-21T23:21:32.026+0000] {subprocess.py:106} INFO - [0m23:21:32  Finished cleaning all paths.
+[2025-09-21T23:21:45.112+0000] {subprocess.py:106} INFO - [0m23:21:45  Running with dbt=1.10.11
+[2025-09-21T23:21:45.901+0000] {subprocess.py:106} INFO - [0m23:21:45  Installing dbt-labs/dbt_utils
+[2025-09-21T23:21:55.580+0000] {subprocess.py:106} INFO - [0m23:21:55  Encountered an error:
+[2025-09-21T23:21:55.581+0000] {subprocess.py:106} INFO - [('dbt_packages/dbt-utils-1.3.0/.github/ISSUE_TEMPLATE/bug_report.md', 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/bug_report.md', '[Errno 2] No such file or directory'), ('dbt_packages/dbt-utils-1.3.0/.github/ISSUE_TEMPLATE/dbt_minor_release.md', 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/dbt_minor_release.md', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/dbt_minor_release.md'"), ('dbt_packages/dbt-utils-1.3.0/.github/ISSUE_TEMPLATE/feature_request.md', 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/feature_request.md', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/feature_request.md'"), ('dbt_packages/dbt-utils-1.3.0/.github/ISSUE_TEMPLATE/utils_minor_release.md', 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/utils_minor_release.md', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/utils_minor_release.md'"), (<DirEntry 'ISSUE_TEMPLATE'>, 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE', '[Errno 2] No such file or directory'), ('dbt_packages/dbt-utils-1.3.0/.github/pull_request_template.md', 'dbt_packages/dbt_utils/.github/pull_request_template.md', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/.github/pull_request_template.md'"), ('dbt_packages/dbt-utils-1.3.0/docs', 'dbt_packages/dbt_utils/docs', "[Errno 17] File exists: 'dbt_packages/dbt_utils/docs'"), ('dbt_packages/dbt-utils-1.3.0/integration_tests', 'dbt_packages/dbt_utils/integration_tests', "[Errno 17] File exists: 'dbt_packages/dbt_utils/integration_tests'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/nullcheck.sql', 'dbt_packages/dbt_utils/macros/sql/nullcheck.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/nullcheck.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/nullcheck_table.sql', 'dbt_packages/dbt_utils/macros/sql/nullcheck_table.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/nullcheck_table.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/pivot.sql', 'dbt_packages/dbt_utils/macros/sql/pivot.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/pivot.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/safe_add.sql', 'dbt_packages/dbt_utils/macros/sql/safe_add.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/safe_add.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/safe_divide.sql', 'dbt_packages/dbt_utils/macros/sql/safe_divide.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/safe_divide.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/safe_subtract.sql', 'dbt_packages/dbt_utils/macros/sql/safe_subtract.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/safe_subtract.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/star.sql', 'dbt_packages/dbt_utils/macros/sql/star.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/star.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/surrogate_key.sql', 'dbt_packages/dbt_utils/macros/sql/surrogate_key.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/surrogate_key.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/union.sql', 'dbt_packages/dbt_utils/macros/sql/union.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/union.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/unpivot.sql', 'dbt_packages/dbt_utils/macros/sql/unpivot.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/unpivot.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/width_bucket.sql', 'dbt_packages/dbt_utils/macros/sql/width_bucket.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/width_bucket.sql'"), (<DirEntry 'sql'>, 'dbt_packages/dbt_utils/macros/sql', '[Errno 2] No such file or directory'), ('dbt_packages/dbt-utils-1.3.0/macros/web/get_url_parameter.sql', 'dbt_packages/dbt_utils/macros/web/get_url_parameter.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/web/get_url_parameter.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/web/get_url_path.sql', 'dbt_packages/dbt_utils/macros/web/get_url_path.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/web/get_url_path.sql'"), (<DirEntry 'web'>, 'dbt_packages/dbt_utils/macros/web', '[Errno 2] No such file or directory'), (<DirEntry 'macros'>, 'dbt_packages/dbt_utils/macros', '[Errno 2] No such file or directory')]
+[2025-09-21T23:21:55.592+0000] {subprocess.py:106} INFO - [0m23:21:55  Traceback (most recent call last):
+[2025-09-21T23:21:55.593+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/shutil.py", line 847, in move
+[2025-09-21T23:21:55.595+0000] {subprocess.py:106} INFO -     os.rename(src, real_dst)
+[2025-09-21T23:21:55.596+0000] {subprocess.py:106} INFO - PermissionError: [Errno 13] Permission denied: 'dbt_packages/dbt-utils-1.3.0' -> 'dbt_packages/dbt_utils'
+[2025-09-21T23:21:55.597+0000] {subprocess.py:106} INFO - 
+[2025-09-21T23:21:55.598+0000] {subprocess.py:106} INFO - During handling of the above exception, another exception occurred:
+[2025-09-21T23:21:55.599+0000] {subprocess.py:106} INFO - 
+[2025-09-21T23:21:55.599+0000] {subprocess.py:106} INFO - Traceback (most recent call last):
+[2025-09-21T23:21:55.600+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 178, in wrapper
+[2025-09-21T23:21:55.601+0000] {subprocess.py:106} INFO -     result, success = func(*args, **kwargs)
+[2025-09-21T23:21:55.602+0000] {subprocess.py:106} INFO -                       ^^^^^^^^^^^^^^^^^^^^^
+[2025-09-21T23:21:55.603+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 128, in wrapper
+[2025-09-21T23:21:55.604+0000] {subprocess.py:106} INFO -     return func(*args, **kwargs)
+[2025-09-21T23:21:55.605+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-09-21T23:21:55.606+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 254, in wrapper
+[2025-09-21T23:21:55.608+0000] {subprocess.py:106} INFO -     return func(*args, **kwargs)
+[2025-09-21T23:21:55.609+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-09-21T23:21:55.609+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 303, in wrapper
+[2025-09-21T23:21:55.610+0000] {subprocess.py:106} INFO -     return func(*args, **kwargs)
+[2025-09-21T23:21:55.611+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-09-21T23:21:55.611+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/main.py", line 461, in deps
+[2025-09-21T23:21:55.612+0000] {subprocess.py:106} INFO -     results = task.run()
+[2025-09-21T23:21:55.613+0000] {subprocess.py:106} INFO -               ^^^^^^^^^^
+[2025-09-21T23:21:55.614+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/task/deps.py", line 258, in run
+[2025-09-21T23:21:55.615+0000] {subprocess.py:106} INFO -     package.install(self.project, renderer)
+[2025-09-21T23:21:55.616+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/deps/registry.py", line 63, in install
+[2025-09-21T23:21:55.616+0000] {subprocess.py:106} INFO -     self._install(project, renderer)
+[2025-09-21T23:21:55.617+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/deps/base.py", line 121, in _install
+[2025-09-21T23:21:55.618+0000] {subprocess.py:106} INFO -     connection_exception_retry(download_untar_fn, 5)
+[2025-09-21T23:21:55.619+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/utils/connection.py", line 22, in connection_exception_retry
+[2025-09-21T23:21:55.619+0000] {subprocess.py:106} INFO -     return fn()
+[2025-09-21T23:21:55.621+0000] {subprocess.py:106} INFO -            ^^^^
+[2025-09-21T23:21:55.622+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/deps/base.py", line 133, in download_and_untar
+[2025-09-21T23:21:55.623+0000] {subprocess.py:106} INFO -     system.untar_package(tar_path, deps_path, package_name)
+[2025-09-21T23:21:55.624+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/clients/system.py", line 649, in untar_package
+[2025-09-21T23:21:55.625+0000] {subprocess.py:106} INFO -     dbt_common.clients.system.rename(downloaded_path, desired_path, force=True)
+[2025-09-21T23:21:55.626+0000] {subprocess.py:106} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/clients/system.py", line 612, in rename
+[2025-09-21T23:21:55.627+0000] {subprocess.py:106} INFO -     shutil.move(from_path, to_path)
+[2025-09-21T23:21:55.628+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/shutil.py", line 863, in move
+[2025-09-21T23:21:55.628+0000] {subprocess.py:106} INFO -     copytree(src, real_dst, copy_function=copy_function,
+[2025-09-21T23:21:55.629+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/shutil.py", line 600, in copytree
+[2025-09-21T23:21:55.630+0000] {subprocess.py:106} INFO -     return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+[2025-09-21T23:21:55.631+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-09-21T23:21:55.632+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/shutil.py", line 554, in _copytree
+[2025-09-21T23:21:55.633+0000] {subprocess.py:106} INFO -     raise Error(errors)
+[2025-09-21T23:21:55.634+0000] {subprocess.py:106} INFO - shutil.Error: [('dbt_packages/dbt-utils-1.3.0/.github/ISSUE_TEMPLATE/bug_report.md', 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/bug_report.md', '[Errno 2] No such file or directory'), ('dbt_packages/dbt-utils-1.3.0/.github/ISSUE_TEMPLATE/dbt_minor_release.md', 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/dbt_minor_release.md', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/dbt_minor_release.md'"), ('dbt_packages/dbt-utils-1.3.0/.github/ISSUE_TEMPLATE/feature_request.md', 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/feature_request.md', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/feature_request.md'"), ('dbt_packages/dbt-utils-1.3.0/.github/ISSUE_TEMPLATE/utils_minor_release.md', 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/utils_minor_release.md', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE/utils_minor_release.md'"), (<DirEntry 'ISSUE_TEMPLATE'>, 'dbt_packages/dbt_utils/.github/ISSUE_TEMPLATE', '[Errno 2] No such file or directory'), ('dbt_packages/dbt-utils-1.3.0/.github/pull_request_template.md', 'dbt_packages/dbt_utils/.github/pull_request_template.md', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/.github/pull_request_template.md'"), ('dbt_packages/dbt-utils-1.3.0/docs', 'dbt_packages/dbt_utils/docs', "[Errno 17] File exists: 'dbt_packages/dbt_utils/docs'"), ('dbt_packages/dbt-utils-1.3.0/integration_tests', 'dbt_packages/dbt_utils/integration_tests', "[Errno 17] File exists: 'dbt_packages/dbt_utils/integration_tests'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/nullcheck.sql', 'dbt_packages/dbt_utils/macros/sql/nullcheck.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/nullcheck.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/nullcheck_table.sql', 'dbt_packages/dbt_utils/macros/sql/nullcheck_table.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/nullcheck_table.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/pivot.sql', 'dbt_packages/dbt_utils/macros/sql/pivot.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/pivot.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/safe_add.sql', 'dbt_packages/dbt_utils/macros/sql/safe_add.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/safe_add.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/safe_divide.sql', 'dbt_packages/dbt_utils/macros/sql/safe_divide.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/safe_divide.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/safe_subtract.sql', 'dbt_packages/dbt_utils/macros/sql/safe_subtract.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/safe_subtract.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/star.sql', 'dbt_packages/dbt_utils/macros/sql/star.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/star.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/surrogate_key.sql', 'dbt_packages/dbt_utils/macros/sql/surrogate_key.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/surrogate_key.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/union.sql', 'dbt_packages/dbt_utils/macros/sql/union.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/union.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/unpivot.sql', 'dbt_packages/dbt_utils/macros/sql/unpivot.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/unpivot.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/sql/width_bucket.sql', 'dbt_packages/dbt_utils/macros/sql/width_bucket.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/sql/width_bucket.sql'"), (<DirEntry 'sql'>, 'dbt_packages/dbt_utils/macros/sql', '[Errno 2] No such file or directory'), ('dbt_packages/dbt-utils-1.3.0/macros/web/get_url_parameter.sql', 'dbt_packages/dbt_utils/macros/web/get_url_parameter.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/web/get_url_parameter.sql'"), ('dbt_packages/dbt-utils-1.3.0/macros/web/get_url_path.sql', 'dbt_packages/dbt_utils/macros/web/get_url_path.sql', "[Errno 2] No such file or directory: 'dbt_packages/dbt_utils/macros/web/get_url_path.sql'"), (<DirEntry 'web'>, 'dbt_packages/dbt_utils/macros/web', '[Errno 2] No such file or directory'), (<DirEntry 'macros'>, 'dbt_packages/dbt_utils/macros', '[Errno 2] No such file or directory')]
+[2025-09-21T23:21:55.634+0000] {subprocess.py:106} INFO - 
+[2025-09-21T23:21:56.915+0000] {subprocess.py:110} INFO - Command exited with return code 2
+[2025-09-21T23:21:56.947+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-09-21T23:21:56.965+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-09-21T23:21:56.967+0000] {logging_mixin.py:190} INFO - Task start:2025-09-21 23:21:20.280640+00:00 end:2025-09-21 23:21:56.964767+00:00 duration:36.684127
+[2025-09-21T23:21:56.973+0000] {logging_mixin.py:190} INFO - Task:<Task(BashOperator): installing_required_dependencies> dag:<DAG: nawy_real_estate_pipeline> dagrun:<DagRun nawy_real_estate_pipeline @ 2025-09-20 00:38:40.851379+00:00: manual__2025-09-20T00:38:40.851379+00:00, state:running, queued_at: 2025-09-21 23:03:47.690563+00:00. externally triggered: True>
+[2025-09-21T23:21:56.977+0000] {logging_mixin.py:190} INFO - Failure caused by Bash command failed. The command returned a non-zero exit code 2.
+[2025-09-21T23:21:56.980+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=nawy_real_estate_pipeline, task_id=installing_required_dependencies, run_id=manual__2025-09-20T00:38:40.851379+00:00, execution_date=20250920T003840, start_date=20250921T232120, end_date=20250921T232156
+[2025-09-21T23:21:57.185+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-09-21T23:21:57.187+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 361 for task installing_required_dependencies (Bash command failed. The command returned a non-zero exit code 2.; 312)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-09-21T23:21:57.225+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-09-21T23:21:57.280+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-21T23:21:57.414+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
